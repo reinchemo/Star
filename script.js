@@ -1,13 +1,13 @@
 // ================================================================
 // MOBILE NAV TOGGLE - IMPROVED
 // ================================================================
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.getElementById('mobileToggle');
     const nav = document.getElementById('mainNav');
 
     if (toggle && nav) {
         // Toggle menu on button click
-        toggle.addEventListener('click', function (e) {
+        toggle.addEventListener('click', function(e) {
             e.stopPropagation();
             nav.classList.toggle('open');
             const icon = toggle.querySelector('i');
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Close menu when clicking a link
-        nav.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
+        nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
                 nav.classList.remove('open');
                 const icon = toggle.querySelector('i');
                 icon.className = 'fas fa-bars';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Close menu when clicking outside
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             if (!nav.contains(e.target) && !toggle.contains(e.target)) {
                 nav.classList.remove('open');
                 const icon = toggle.querySelector('i');
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================================
     // SMOOTH SCROLL
     // ============================================================
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             const targetEl = document.querySelector(targetId);
@@ -64,12 +64,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const rect = statsSection.getBoundingClientRect();
         if (rect.top < triggerPoint) {
             animated = true;
-            statNumbers.forEach(function (el) {
+            statNumbers.forEach(function(el) {
                 const target = parseFloat(el.getAttribute('data-count'));
                 const suffix = el.getAttribute('data-suffix') || '';
                 let current = 0;
                 const increment = target / 60;
-                const timer = setInterval(function () {
+                const timer = setInterval(function() {
                     current += increment;
                     if (current >= target) {
                         current = target;
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================================
     const backBtn = document.getElementById('backToTop');
     if (backBtn) {
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             if (window.pageYOffset > 400) {
                 backBtn.classList.add('visible');
             } else {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        backBtn.addEventListener('click', function () {
+        backBtn.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================================
     const form = document.getElementById('contactForm');
     if (form) {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const name = document.getElementById('name').value.trim();
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             btn.disabled = true;
 
-            setTimeout(function () {
+            setTimeout(function() {
                 alert('Thank you, ' + name + '! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
                 form.reset();
                 btn.innerHTML = originalText;
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ============================================================
     const header = document.querySelector('.site-header');
     if (header) {
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             if (window.pageYOffset > 50) {
                 header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
             } else {
